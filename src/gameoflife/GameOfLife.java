@@ -26,6 +26,7 @@ public class GameOfLife implements ActionListener {
     private final Color backgroundColor;
     private final float ratio;
     private int generationCounter;
+    private final int gridHeight;
     
     private final PresetHandler presetHandler;
     private List<Preset> presets;
@@ -39,19 +40,19 @@ public class GameOfLife implements ActionListener {
         
         ratio = 1;
         generationCounter = 0;
+        gridHeight = 800;
         
         themes = Arrays.asList(new Theme("Dark", Color.YELLOW, Color.DARK_GRAY, Color.BLACK),
                 new Theme("Light", new Color(200, 10, 10), new Color(170, 170, 170), Color.BLACK),
                 new Theme("Cool", new Color(0, 180, 0), new Color(100, 100, 100), Color.BLACK));
         sizes = Arrays.asList(new Size("Small", 21, ratio),
-                new Size("Medium", 41, ratio),
-                new Size("Large", 51, ratio),
-                new Size("XL", 71, ratio),
-                new Size("XXL", 91, ratio));
-        speeds = Arrays.asList(new Speed("Slow", 2),
-                new Speed("Medium", 5),
-                new Speed("Fast", 10),
-                new Speed("Extreme", 20));
+                new Size("Medium", 47, ratio),
+                new Size("Large", 81, ratio),
+                new Size("XXL", 135, ratio));
+        speeds = Arrays.asList(new Speed("Slow", 5),
+                new Speed("Medium", 10),
+                new Speed("Fast", 20),
+                new Speed("Extreme", 40));
         presets = presetHandler.getPresets();
         
         // ****************************************************************
@@ -65,7 +66,7 @@ public class GameOfLife implements ActionListener {
     private void start() {
         Size largestSize = sizes.stream().reduce((biggest, next) -> next.getHeight() > biggest.getHeight() ? next : biggest).get();
         grid = new Grid(largestSize, sizes.get(0), new Timer(currentSpeed.getGPS(), this), currentTheme, backgroundColor);
-        grid.setGrid(ratio);
+        grid.setGrid(ratio, gridHeight);
         dashboard = new Dashboard(themes.stream()
                 .map(x -> x.getName())
                 .collect(Collectors.toList())

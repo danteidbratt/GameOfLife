@@ -98,7 +98,7 @@ public class Cell extends JLabel {
     private class Listener extends MouseAdapter {
 
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void mousePressed(MouseEvent me) {
             toggleState();
         }
 

@@ -21,6 +21,8 @@ public class Grid extends JPanel {
     private Preset preset;
     private final PresetListener presetListener;
     private List<Cell> cellList;
+    private int height;
+    private int width;
 
     public Grid(Size maxSize, Size size, Timer timer, Theme theme, Color backgroundColor) {
         this.theme = theme;
@@ -33,7 +35,7 @@ public class Grid extends JPanel {
         this.presetListener = new PresetListener();
     }
 
-    public void setGrid(float ratio) {
+    public void setGrid(float ratio, int height) {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells[i].length; j++) {
                 cells[i][j] = new Cell();
@@ -53,9 +55,7 @@ public class Grid extends JPanel {
             }
         }
         cellList = getCellList();
-        int height = 600;
-        int width = (int) (height * ratio);
-        setPreferredSize(new Dimension(width, height));
+        setPreferredSize(new Dimension((int) (height * ratio), height));
         setBackground(backgroundColor);
         updateGrid();
     }
@@ -175,7 +175,7 @@ public class Grid extends JPanel {
     private class PresetListener extends MouseAdapter {
 
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void mousePressed(MouseEvent e) {
             if (preset != null) {
                 placePreset(e);
             }

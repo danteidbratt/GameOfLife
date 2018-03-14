@@ -33,7 +33,7 @@ public class Window extends JFrame {
         add(grid, "Center");
         refresh();
     }
-
+    
     public void refresh() {
         revalidate();
         repaint();
