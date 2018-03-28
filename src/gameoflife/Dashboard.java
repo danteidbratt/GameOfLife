@@ -11,7 +11,7 @@ public class Dashboard extends JPanel{
     
     private final JPanel labelPanel;
     private final JPanel boxPanel;
-    private final JLabel[] labels = {new JLabel("Generation"),new JLabel("Size"), new JLabel("Theme"), new JLabel("Speed"), new JLabel("Presets")};
+    private final JLabel[] labels = {new JLabel("Generation"),new JLabel("Size"), new JLabel("Presets"), new JLabel("Speed"), new JLabel("Theme")};
     private final JLabel generationLabel;
     private final JComboBox<String> themeBox;
     private final JComboBox<String> sizeBox;
@@ -54,9 +54,9 @@ public class Dashboard extends JPanel{
         generationLabel.setForeground(Color.WHITE);
         boxPanel.add(generationLabel);
         boxPanel.add(sizeBox);
-        boxPanel.add(themeBox);
-        boxPanel.add(speedBox);
         boxPanel.add(presetBox);
+        boxPanel.add(speedBox);
+        boxPanel.add(themeBox);
         add(labelPanel);
         add(boxPanel);
     }
@@ -85,7 +85,7 @@ public class Dashboard extends JPanel{
         boxPanel.remove(presetBox);
         presetBox = new JComboBox(values);
         presetBox.addActionListener(al);
-        boxPanel.add(presetBox, 3);
+        boxPanel.add(presetBox, 1);
         revalidate();
     }
     
