@@ -85,7 +85,7 @@ public class Dashboard extends JPanel{
         boxPanel.remove(presetBox);
         presetBox = new JComboBox(values);
         presetBox.addActionListener(al);
-        boxPanel.add(presetBox, 1);
+        boxPanel.add(presetBox, 2);
         revalidate();
     }
     

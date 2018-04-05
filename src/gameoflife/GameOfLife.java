@@ -49,10 +49,10 @@ public class GameOfLife implements ActionListener {
                 new Size("Medium", 47, ratio),
                 new Size("Large", 81, ratio),
                 new Size("XXL", 135, ratio));
-        speeds = Arrays.asList(new Speed("Slow", 5),
+        speeds = Arrays.asList(new Speed("Slow", 3),
                 new Speed("Medium", 10),
                 new Speed("Fast", 20),
-                new Speed("Extreme", 40));
+                new Speed("Extreme", 30));
         presets = presetHandler.getPresets();
         
         // ****************************************************************
